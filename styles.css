@@ -1,24 +1,50 @@
-html {
-    font-family: "Manrope", sans-serif;
-    width: 100%;
-    height: 100%;
+/* Garantir que paddings e bordas sejam inclusos na largura e altura */
+* {
     box-sizing: border-box;
-    font-size: 16px;
 }
 
-body {
-    margin: 0px;
+html, body {
+    margin: 0;
+    overflow-x: hidden; /* Impede o transbordamento horizontal */
+    width: 100%;
+    font-family: Manrope;
 }
 
+/* #presentation-container */
 #presentation-container {
-    padding: 2,5rem 7.5rem;
-    height: 50vh;
+    padding: 2rem 5rem 7.5rem;
+    min-height: 100vh; /* Usar min-height ao invés de height para maior flexibilidade */
+    background-image: url(images/head.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #presentation-text {
-    width: 37.5rem;
-    position: relative;
-    top: calc(50% - 9.05rem);
+    max-width: 37.5rem; /* Limita a largura a 37.5rem, mas ainda responsivo */
+    position: absolute;
+    top: 50%; /* Centraliza verticalmente */
+    left: 0; /* Alinha à esquerda */
+    transform: translateY(-50%); /* Ajusta o deslocamento vertical */
+    padding-left: 1rem;
+    
+    
+}
+
+/* Ajustes de responsividade para garantir que o texto não ultrapasse o limite da tela */
+@media (max-width: 48rem) {
+    #presentation-text {
+        max-width: 90%; /* Limita a largura para telas menores */
+        left: 5%; /* Ajusta para que o texto fique alinhado à esquerda sem escapar */
+        top: 50%; /* Garante que o texto permaneça centralizado verticalmente */
+        transform: translateY(-50%); /* Ajusta o posicionamento para não ultrapassar o topo */
+    }
+}
+
+@media (max-width: 30rem) {
+    #presentation-text {
+        max-width: 80%; /* Limita ainda mais a largura para telas pequenas */
+        left: 5%; /* Alinha mais à esquerda */
+    }
 }
 
 h1 {
@@ -29,7 +55,7 @@ h1 {
 
 h2 {
     font-size: 3rem;
-    font-weight: 5rem;
+    font-weight: 500;
     margin: 0;
 }
 
@@ -39,41 +65,202 @@ button {
     font-size: 1.5rem;
     border: none;
     font-weight: 500;
-    /* para peso da fonte*/
-    padding: 1.5rem 2.5rem 1.5rem 2.5rem;
-    border-radius: .5rem;
+    padding: 1.5rem 2.5rem;
+    border-radius: 0.5rem;
     cursor: pointer;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
+button:hover {
+    transform: scale(1.1);
+}
+
+/* Container com os elementos */
 .container {
     padding: 10rem 7.5rem;
     text-align: center;
 }
 
-h3 {
-    font-size: 1.5rem;
-}
-
+/* #elements: Grid responsivo */
 #elements {
-    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas de tamanhos iguais */
+    gap: 16px; /* Espaço entre os elementos */
+    width: 100%;
+    margin: 0 auto; /* Centraliza a div no container */
 }
 
+#elements > div {
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: .5rem;
+}
+
+
+/* Texto do sub-head */
+#sub-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 0rem 3rem 0rem; /* Ajustado para maior responsividade */
+    text-align: center;
+    width: 100%;
+    max-width: 58rem; /* Limita a largura a 29rem */
+    margin: 0 auto;
+}
+
+/* Ajuste de título no sub-head */
+#contact-title {
+    margin-top: .5rem;
+}
+
+.container > p {
+    margin-top: 1.5rem;
+}
+
+.container > button {
+    margin-top: 2rem;
+}
+
+/* Background Gradient */
+.background-gradient {
+    background: linear-gradient(to bottom,
+            rgba(255, 0, 0, 0.5) 0%,
+            transparent 30%,
+            rgba(0, 0, 0, 0.393) 100%);
+}
+
+/* Estilo do texto do sub-head */
 #text-sub-head {
     font-size: 2rem;
 }
 
-p{
+p {
     font-size: 1.25rem;
+    font-weight: 50;
+    color: rgba(0, 0, 0, 0.382);
 }
-#sub-head{
+
+#solucoes {
+    background-color: #F84646;
+    color: white;
+}
+
+#textSolutions {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1rem;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Ajuste para tablets (max-width: 48rem) */
+@media (max-width: 48rem) {
+    #textSolutions {
+        grid-template-columns: repeat(4, 1fr); /* 4 colunas em telas menores */
+    }
+}
+
+/* Ajuste para celulares (max-width: 30rem) */
+@media (max-width: 30rem) {
+    #textSolutions {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+#solucoes {
     text-align: center;
+    padding: 2rem 6rem 2rem 6rem;
 }
-#contact-title{
-    margin-top: .5rem;
+
+#textSolutions h3{
+    margin: 0px;
+    padding-bottom: 6rem;
 }
-.container > p{
-    margin-top: 1.5rem;
+#titleSolutions{
+    padding-bottom: 5rem;
+    padding-top: 3rem;
 }
-.container > button {
+.article-details{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    align-items: flex-start;
+    margin: 0 2.5rem 0 0;
+    text-align: justify;
+}
+.article-details > button{
     margin-top: 2rem;
+    font-size: .8rem;
+}
+.article-container{
+    display: flex;
+}
+.article-container:nth-child(even) > .article-details{
+    flex-direction: row-reverse;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    align-items: flex-start;
+    margin: 0 0 0 2.5rem;
+    text-align: justify; 
+}
+
+.article-container:nth-child(even){
+    margin-top: 5rem;
+    flex-direction: row-reverse;
+}
+
+#white{
+    color: white;
+}
+.footer-list{
+    display: flex;
+    text-align: left;
+}
+.footer-list > ul > li{
+    list-style: none;
+}
+
+.background-red{
+    background-color: #F84646;
+    color: white;
+}
+.background-gray{
+    background-color: #F4F5F7;
+}
+#black{
+    color: black;
+}
+
+#clients {
+    display: flex;
+    flex-direction: column; /* Linhas empilhadas verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    gap: 1rem; /* Espaço entre as linhas */
+}
+
+.row {
+    display: flex; /* Ativa layout flexível para cada linha */
+    justify-content: center; /* Centraliza imagens na linha */
+    gap: 1rem; /* Espaço entre as imagens dentro da linha */
+}
+
+.row img {
+    width: 100px; /* Define um tamanho fixo uniforme para as imagens */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .row img {
+        width: 80px; /* Reduz o tamanho das imagens em telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    .row img {
+        width: 60px; /* Reduz ainda mais para telas pequenas */
+    }
 }
