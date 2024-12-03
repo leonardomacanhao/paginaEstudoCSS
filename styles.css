@@ -81,33 +81,18 @@ button:hover {
     text-align: center;
 }
 
-/* #elements: Grid responsivo */
-#elements {
+.grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 colunas de tamanhos iguais */
-    gap: 16px; /* Espaço entre os elementos */
-    width: 100%;
-    margin: 0 auto; /* Centraliza a div no container */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5rem;
 }
 
-#elements > div {
-    padding: 1.5rem;
-    text-align: center;
-    border-radius: .5rem;
+.grid-item > h3{
+    margin-top: .5rem;
 }
 
-
-/* Texto do sub-head */
-#sub-head {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 6rem 0rem 3rem 0rem; /* Ajustado para maior responsividade */
-    text-align: center;
-    width: 100%;
-    max-width: 58rem; /* Limita a largura a 29rem */
-    margin: 0 auto;
+.grid-item > p{
+    margin: .5rem 0 0 ;
 }
 
 /* Ajuste de título no sub-head */
@@ -132,7 +117,7 @@ button:hover {
 }
 
 /* Estilo do texto do sub-head */
-#text-sub-head {
+.contact-title {
     font-size: 2rem;
 }
 
@@ -234,24 +219,6 @@ p {
     color: black;
 }
 
-#clients {
-    display: flex;
-    flex-direction: column; /* Linhas empilhadas verticalmente */
-    align-items: center; /* Centraliza horizontalmente */
-    gap: 1rem; /* Espaço entre as linhas */
-}
-
-.row {
-    display: flex; /* Ativa layout flexível para cada linha */
-    justify-content: center; /* Centraliza imagens na linha */
-    gap: 1rem; /* Espaço entre as imagens dentro da linha */
-}
-
-.row img {
-    width: 100px; /* Define um tamanho fixo uniforme para as imagens */
-    height: auto; /* Mantém a proporção da imagem */
-}
-
 /* Responsividade */
 @media (max-width: 768px) {
     .row img {
@@ -263,4 +230,44 @@ p {
     .row img {
         width: 60px; /* Reduz ainda mais para telas pequenas */
     }
+}
+
+.grid-container-companies{
+    display: grid;
+    grid-template-columns: repeat(5 , 1fr);
+    grid-template-rows: repeat(3 , 1fr);
+}
+
+.cp1{
+    grid-area: 3 / 5;
+}
+.cp2{
+    grid-area: 2 / 2;
+}
+.cp3{
+    grid-area: 3 / 3;
+}
+.cp4{
+    grid-area: 1 / 3;
+}
+.cp5{
+    grid-area: 3 / 4;
+}
+.cp6{
+    grid-area: 2 / 3;
+}
+.cp7{
+    grid-area: 2 / 4;
+}
+.cp8{
+    grid-area: 3 / 2;
+}
+.cp9{
+    grid-area: 3 / 1;
+}
+
+.grid-container-companies{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
